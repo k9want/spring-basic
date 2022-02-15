@@ -8,5 +8,9 @@ class TvTest1 {
         t.channel = 7;
         t.channelDown();
         System.out.println("현재 채널 " + t.channel);
+        t.tvIntroduce();
+        Tv.introduce();
+        t.color = "white";
+        t.tvIntroduce();
     }
 }

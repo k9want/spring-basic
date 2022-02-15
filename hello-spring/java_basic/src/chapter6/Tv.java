@@ -16,4 +16,12 @@ public class Tv {
     void channelDown() {
         channel--;
     }
+
+    static void introduce(){
+        System.out.println("Tv");
+    }
+
+    void tvIntroduce() {
+        System.out.println(color + "tv" );
+    }
 }
