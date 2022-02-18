@@ -3,6 +3,9 @@ package chapter7;
 class Point7 {
     int x, y;
 
+    public Point7() {
+        this(1, 1);
+    }
 
     public Point7(int x, int y) {
         this.x = x;
@@ -22,7 +25,7 @@ class Point3D extends Point7 {
     }
 
     public Point3D(int x, int y, int z) {
-        super(x, y);
+//        super(x, y);
         this.z = z;
     }
 
