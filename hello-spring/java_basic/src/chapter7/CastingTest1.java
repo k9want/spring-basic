@@ -28,7 +28,7 @@ public class CastingTest1 {
         fe.water();
         car = fe;
 //        car.water() //car 잠조변수로는 불가능
-        fe2 = (FireEngine) car;
+        fe2 = (FireEngine) car; //자손타입 <- 조상타입
         fe2.water();
     }
 }
