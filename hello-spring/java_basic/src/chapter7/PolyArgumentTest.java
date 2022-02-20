@@ -11,8 +11,8 @@ class Product {
     Product() {}
 }
 
-class Tv extends Product {
-    Tv() {
+class Tv7 extends Product {
+    Tv7() {
         super(100);
     }
 
@@ -56,17 +56,35 @@ class Buyer {
         boughtProduct[i++] = p;
         System.out.println(p.toString() + " 구매완료");
     }
+
+    void summary() {
+        int sum = 0;
+        String boughtProductList = "";
+
+        for (int i = 0; i < boughtProduct.length; i++) {
+            if(boughtProduct[i] == null){
+                break;
+            }
+            sum += boughtProduct[i].price;
+            boughtProductList += boughtProduct[i] + ", ";
+        }
+        System.out.println("구입한 물품의 총 금액 : " + sum + "원");
+        System.out.println("구입한 제품 : " + boughtProductList);
+    }
 }
+
 
 
 public class PolyArgumentTest {
     public static void main(String[] args) {
         Buyer b = new Buyer();
-        b.buy(new Tv());
         Computer c = new Computer();
+        Tv7 t = new Tv7();
+        b.buy(t);
         b.buy(c);
-
+        b.buy(new Audio());
         System.out.println("현재 남은 돈 : "+ b.money);
         System.out.println("현재 남은 보너스 포인트 : " + b.bonusPoint);
+        b.summary();
     }
 }
