@@ -1,5 +1,7 @@
 package chapter7;
 
+import java.util.Vector;
+
 class Product {
     int price;
     int bonusPoint;
@@ -43,7 +45,7 @@ class Audio extends Product {
 class Buyer {
     int money = 1000;
     int bonusPoint = 0;
-    Product[] boughtProduct = new Product[10]; //구입한 제품을 저장하기 위한 배열 생성
+    Vector boughtProduct = new Vector(); //Vector 객체 사용
     int i = 0;
 
     void buy(Product p) {
@@ -53,22 +55,35 @@ class Buyer {
         }
         money -= p.price;
         bonusPoint += p.bonusPoint;
-        boughtProduct[i++] = p;
+        boughtProduct.add(p);
         System.out.println(p.toString() + " 구매완료");
+    }
+
+    void refund(Product p) {
+        if (boughtProduct.remove(p)) {
+            money += p.price;
+            bonusPoint -= p.bonusPoint;
+            System.out.println(p + "을 반품");
+        } else {
+            System.out.println("구입한 제품 중 해당 제품이 없습니다.");
+        }
     }
 
     void summary() {
         int sum = 0;
         String boughtProductList = "";
 
-        for (int i = 0; i < boughtProduct.length; i++) {
-            if(boughtProduct[i] == null){
-                break;
-            }
-            sum += boughtProduct[i].price;
-            boughtProductList += boughtProduct[i] + ", ";
+        if (boughtProduct.isEmpty()) {
+            System.out.println("구입한 제품이 없습니다.");
+            return;
         }
-        System.out.println("구입한 물품의 총 금액 : " + sum + "원");
+
+        for (int i = 0; i < boughtProduct.size(); i++) {
+            Product p = (Product) boughtProduct.get(i);
+            sum += p.price;
+            boughtProductList += (i==0) ? "" + p : ", " + p;
+        }
+        System.out.println("구입한 물품의 총 금액 : " + sum);
         System.out.println("구입한 제품 : " + boughtProductList);
     }
 }
@@ -86,5 +101,11 @@ public class PolyArgumentTest {
         System.out.println("현재 남은 돈 : "+ b.money);
         System.out.println("현재 남은 보너스 포인트 : " + b.bonusPoint);
         b.summary();
+
+        System.out.println();
+        b.refund(t);
+        b.summary();
+        System.out.println("현재 남은 돈 : "+ b.money);
+        System.out.println("현재 남은 보너스 포인트 : " + b.bonusPoint);
     }
 }
