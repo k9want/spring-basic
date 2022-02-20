@@ -8,6 +8,7 @@ class Product {
         this.price = price;
         bonusPoint = (int) (price / 10.0);
     }
+    Product() {}
 }
 
 class Tv extends Product {
@@ -29,9 +30,21 @@ class Computer extends Product {
     }
 }
 
+class Audio extends Product {
+    Audio() {
+        super(50);
+    }
+    public String toString() {
+        return "Audio";
+    }
+
+}
+
 class Buyer {
     int money = 1000;
     int bonusPoint = 0;
+    Product[] boughtProduct = new Product[10]; //구입한 제품을 저장하기 위한 배열 생성
+    int i = 0;
 
     void buy(Product p) {
         if (money < p.price) {
@@ -40,6 +53,7 @@ class Buyer {
         }
         money -= p.price;
         bonusPoint += p.bonusPoint;
+        boughtProduct[i++] = p;
         System.out.println(p.toString() + " 구매완료");
     }
 }
