@@ -2,14 +2,10 @@ package chapter7;
 
 class Fighter extends Unit implements Fightable {
     @Override
-    public void attack(Unit u) {
-
-    }
+    public void attack(Unit u) {}
 
     @Override
-    public void move(int x, int y) {
-
-    }
+    public void move(int x, int y) {}
 }
 
 class Unit {

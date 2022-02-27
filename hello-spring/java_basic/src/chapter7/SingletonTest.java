@@ -1,6 +1,6 @@
 package chapter7;
 
-class Singleton {
+final class Singleton {
     private static Singleton s = new Singleton();
 
     private Singleton() {
