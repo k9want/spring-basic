@@ -1,6 +1,7 @@
 package chapter11;
 
 import java.util.ArrayList;
+import java.util.Collections;
 
 public class ArrayListEx1 {
     public static void main(String[] args) {
@@ -14,6 +15,12 @@ public class ArrayListEx1 {
 
         ArrayList list2 = new ArrayList(list1.subList(1, 4));
         print(list1, list2);
+
+        Collections.sort(list1);
+        Collections.sort(list2);
+        print(list1, list2);
+
+        
 
         list2.add("A");
         list2.add("L");
