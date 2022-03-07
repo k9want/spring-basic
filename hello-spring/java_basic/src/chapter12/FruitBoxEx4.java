@@ -69,7 +69,7 @@ public class FruitBoxEx4 {
         System.out.println(appleBox);
         System.out.println(grapeBox);
         System.out.println();
-        Collections.sort(appleBox.getList(), new FruitComp());
+        Collections.sort(appleBox.getList(), new FruitComp()); //Collections.sort() -> 지네릭 메서드
         Collections.sort(grapeBox.getList(), new FruitComp());
         System.out.println(appleBox);
         System.out.println(grapeBox);
