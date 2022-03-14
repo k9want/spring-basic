@@ -13,7 +13,7 @@ public class StreamEx1 {
                 new StudentForStream("오자바", 1, 400)
                 ) ;
         studentStream.sorted(Comparator.comparing(StudentForStream::getBan)
-                .thenComparing(Comparator.naturalOrder()))
+                .thenComparing(Comparator.reverseOrder()))
                 .forEach(System.out::println);
     }
 
