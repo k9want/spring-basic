@@ -1,3 +1,5 @@
+package chapter14;
+
 @FunctionalInterface
 interface MyFunction {
     void run();
