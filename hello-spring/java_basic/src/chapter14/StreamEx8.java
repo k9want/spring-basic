@@ -116,8 +116,9 @@ public class StreamEx8 {
 
         Set<String> keySet2 = stuByScoreGroup.keySet();
         for (String key : keySet2) {
-            System.out.println("stuByScoreGroup.get(key) = " + stuByScoreGroup.get(key));
+            System.out.println(key + " " + stuByScoreGroup.get(key));
         }
 
     }
 }
+
