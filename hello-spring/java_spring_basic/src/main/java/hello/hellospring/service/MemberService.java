@@ -32,17 +32,10 @@ public class MemberService {
 //            throw new IllegalStateException("이미 존재하는 회원입니다.");
 //        });
 
-        long start = System.currentTimeMillis();
-
-        try{
             validateDuplicateMember(member); //중복 회원 검증
             memberRepository.save(member);
             return member.getId();
-        }finally {
-            long finish = System.currentTimeMillis();
-            long timeMs = finish - start;
-            System.out.println("timeMs = " + timeMs);
-        }
+
 
     }
 
@@ -58,14 +51,7 @@ public class MemberService {
      * @return
      */
     public List<Member> findMembers() {
-        long time = System.currentTimeMillis();
-        try{
             return memberRepository.findAll();
-        }finally {
-            long finish = System.currentTimeMillis();
-            long timeMs = finish - time;
-            System.out.println("findMembers = " + timeMs);
-        }
     }
 
     public Optional<Member> findOne(Long memberId){
