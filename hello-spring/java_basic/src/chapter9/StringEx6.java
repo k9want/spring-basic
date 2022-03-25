@@ -8,7 +8,7 @@ public class StringEx6 {
         double dVal = 200.0;
         String strVal2 = dVal + "";
 
-        double sum = Integer.parseInt("" + iVal) + Double.parseDouble(strVal2);
+        double sum = Integer.parseInt((" " + iVal).trim()) + Double.parseDouble(strVal2);
 
         double sum2 = Integer.valueOf(strVal) + Double.valueOf(dVal);
 
